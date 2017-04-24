@@ -8,7 +8,7 @@ class base_computer::update_modules {
 
     cron { 'runPuppetUpdates' :
         ensure => present,
-        command => "/bin/bash /opt/puppet/runAgent.sh",
+        command => "cd /opt/puppet/ && /bin/bash /opt/puppet/runAgent.sh",
         minute => ['0','30']
     }
 }

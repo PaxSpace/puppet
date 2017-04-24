@@ -3,8 +3,11 @@ class base_computer {
         command => "/usr/bin/apt-get update"
     }
     
-    package {"cron" : ensure => "latest"}
-    package {"vim" : ensure => "latest"}
-    package {"git" : ensure => "latest"}
-    package {"sudo" : ensure => "latest"}
+    $packages = ['cron', 'vim', 'git', 'sudo']
+    package {$packages : ensure => "latest", require => Exec['apt-get update']}
+    
+    exec { "apt-get upgrade" : 
+        command => "/usr/bin/apt-get upgrade -y",
+        require => Exec['apt-get update']
+    }
 }

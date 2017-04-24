@@ -1,3 +1,3 @@
 #!/bin/bash
 
-puppet apply --modulepath=$PWD/modules/ $PWD/manifests/
+puppet apply --verbose --modulepath=$PWD/modules/ $PWD/manifests/
