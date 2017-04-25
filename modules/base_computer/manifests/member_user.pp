@@ -28,13 +28,14 @@ class base_computer::member_user {
         owner => 'member',
         group => 'member',
         mode => '0644',
-        require => File['/home/member']
+        require => File['/home/member'],
+        before => Tidy['empty_downloads']
     }
+
     tidy {'empty_downloads':
         path => '/home/member/Downloads',
         age => '3days',
         recurse => 'true',
-        rmdirs => 'true', 
-        require => File['/home/member/Downloads']
+        rmdirs => 'true' 
     }
 }
