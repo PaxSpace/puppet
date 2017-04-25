@@ -4,7 +4,7 @@ mkdir -p /opt
 cd /opt
 
 apt-get update
-apt-get install puppet git 
+apt-get install -y puppet git 
 
 git clone https://github.com/PaxSpace/puppet.git
 
