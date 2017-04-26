@@ -11,6 +11,11 @@ class base_computer::update_modules {
         before => Cron['runPuppetUpdates']
     }
 
+    service {"cron":
+        enable => true,
+        ensure => 'running',
+        before => Cron['runPuppetUpdates']
+    }
     cron { 'runPuppetUpdates' :
         ensure => present,
         command => 'cd /opt/puppet/ && /bin/bash /opt/puppet/runAgent.sh > /var/log/puppet_agent/`date +\%Y\%m\%d-\%H\%M\%S`.log 2>&1',
