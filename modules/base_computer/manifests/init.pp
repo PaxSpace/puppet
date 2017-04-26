@@ -3,7 +3,7 @@ class base_computer {
         command => "/usr/bin/apt-get update"
     }
     
-    $packages = ['cron', 'vim', 'git', 'sudo']
+    $packages = [ 'rsyslog', 'cron', 'vim', 'git', 'sudo']
     package {$packages : ensure => "latest", require => Exec['apt-get update']}
     
     exec { "apt-get upgrade" : 
