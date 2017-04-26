@@ -7,7 +7,7 @@ class base_computer::member_user {
         allowdupe => false,
         ensure => 'present',
         home => '/home/member',
-        password => 'member',
+        password => '$6$3bzfMnIx$8Bq9u42Ti0zasUlIRxwIzN6FOwiovG1dVWyqifh1CYwNernLDzt.MhtgnLKZbADCWf8jHqlpGmKsddGa3EXmI1',
         groups => $groups,
         managehome => 'true',
         comment => "member User",
