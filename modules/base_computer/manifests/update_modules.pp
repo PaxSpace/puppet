@@ -6,9 +6,14 @@ class base_computer::update_modules {
         revision => 'master'
     }
 
+    file { "/var/log/puppet_agent" :
+        ensure => directory,
+        before => Cron['runPuppetUpdates']
+    }
+
     cron { 'runPuppetUpdates' :
         ensure => present,
-        command => "cd /opt/puppet/ && /bin/bash /opt/puppet/runAgent.sh",
+        command => 'cd /opt/puppet/ && /bin/bash /opt/puppet/runAgent.sh > /var/log/puppet_agent/`date +\%Y\%m\%d-\%H\%M\%S`.log 2>&1',
         minute => ['0','30']
     }
 }
