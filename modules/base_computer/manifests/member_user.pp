@@ -36,6 +36,7 @@ class base_computer::member_user {
         path => '/home/member/Downloads',
         age => '3days',
         recurse => 'true',
-        rmdirs => 'true' 
+        rmdirs => 'true',
+        require => File['/home/member/Downloads']
     }
 }

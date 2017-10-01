@@ -8,7 +8,7 @@ class base_computer::update_modules {
 
     file { "/var/log/puppet_agent" :
         ensure => directory,
-        before => Cron['runPuppetUpdates']
+        require => Cron['runPuppetUpdates']
     }
 
     service {"cron":

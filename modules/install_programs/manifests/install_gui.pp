@@ -8,7 +8,7 @@ class install_programs::install_gui {
         before => Package['gnome']
     }
 
-    $apt_packages = ['gnome','gdm3']
+    $apt_packages = ['gnome','gdm3','x11-apps']
     
     package { $apt_packages: ensure => latest, require => Exec['apt-get update']}
 }
