@@ -1,5 +1,5 @@
 class install_programs {
-    $apt_packages = ['less']
+    $apt_packages = ['less','vim']
     
     package { $apt_packages: ensure => latest}
 
