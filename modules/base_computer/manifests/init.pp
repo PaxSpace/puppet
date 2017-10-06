@@ -14,7 +14,7 @@ class base_computer {
     
     exec { "apt-get upgrade" : 
         command => "/usr/bin/apt-get upgrade -y",
-        require => Exec['apt-get update']
+        require => Exec['apt-get update'],
         schedule => "dailyAt11"
     }
 }
